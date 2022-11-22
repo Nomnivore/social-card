@@ -1,14 +1,13 @@
-﻿const { createProxyMiddleware } = require('http-proxy-middleware');
+﻿/* eslint-disable no-undef */
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
-const context = [
-    "/weatherforecast",
-];
+const context = ["/weatherforecast"];
 
 module.exports = function (app) {
-    const appProxy = createProxyMiddleware(context, {
-        target: 'https://localhost:7175',
-        secure: false
-    });
+  const appProxy = createProxyMiddleware(context, {
+    target: "https://localhost:7175",
+    secure: false,
+  });
 
-    app.use(appProxy);
+  app.use(appProxy);
 };
