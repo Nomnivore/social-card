@@ -16,12 +16,18 @@ const Home = () => {
         setForecasts(response?.data);
       })
       .catch((err) => {
+        if (err.code === "ERR_CANCELED") return;
         console.log(err);
       });
 
     return () => abort.abort();
   }, []);
 
-  return <div>{forecasts[0].date ?? "You might need to refresh"}</div>;
+  return (
+    <div>
+      <h1 className="text-xl"></h1>
+      <p>{forecasts[0].date ?? "You might need to refresh"}</p>
+    </div>
+  );
 };
 export default Home;
