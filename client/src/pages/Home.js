@@ -25,7 +25,9 @@ const Home = () => {
 
   return (
     <div>
-      <h1 className="text-xl"></h1>
+          <h1 className="text-3xl font-bold underline">
+              Hello world!
+          </h1>
       <p>{forecasts[0].date ?? "You might need to refresh"}</p>
     </div>
   );
