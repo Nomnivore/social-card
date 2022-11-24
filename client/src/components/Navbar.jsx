@@ -1,7 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-function NavbarComponent() {
+function Navbar() {
   return (
     <div className="navbar bg-secondary text-secondary-content">
       <div className="navbar-start">
@@ -62,4 +61,4 @@ function NavbarComponent() {
   );
 }
 
-export default NavbarComponent;
+export default Navbar;
