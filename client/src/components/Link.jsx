@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 
-function Link({ linkName }) {
-  return <button className="btn btn-wide btn-secondary">{linkName}</button>;
+function Link(props) {
+  return (
+    <button className="btn btn-wide btn-secondary">{props.linkName}</button>
+  );
 }
-
 Link.propTypes = {
   linkName: PropTypes.string,
 };
