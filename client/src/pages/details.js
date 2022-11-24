@@ -13,17 +13,13 @@ const Details = () => {
       ],
     },
   ];
+
   return (
-    <div>
+    <div className="flex justify-evenly pt-10">
       <Card
-        cardInitials={data.cardInitials}
-        userName={data.userName}
-        myLinks={[
-          data[0].myLinks[0],
-          data[0].myLinks[1],
-          data[0].myLinks[2],
-          data[0].myLinks[3],
-        ]}
+        cardInitials={data[0].cardInitials}
+        userName={data[0].userName}
+        myLinks={data[0].myLinks}
       />
     </div>
   );

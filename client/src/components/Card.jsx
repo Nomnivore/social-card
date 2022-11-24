@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function Card({ cardInitials, userName, myLinks }) {
   return (
-    <div className="card lg:card-side bg-accent shadow-xl  ">
+    <div className="card w-96 bg-accent shadow-xl  ">
       <div className="card-body">
         <Avatar initials={cardInitials} />
         <p className="flex justify-center text-primary-content">{userName}</p>
