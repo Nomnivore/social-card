@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using server.DbContext;
 
@@ -11,9 +12,11 @@ using server.DbContext;
 namespace server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221126214755_SeedData")]
+    partial class SeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -224,15 +227,13 @@ namespace server.Migrations
                         {
                             Id = "3bda2c93-0918-4e07-be0f-d7c6765b5445",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f67064db-8f85-4982-ae62-2a2483c6c270",
+                            ConcurrencyStamp = "9fc6cc1f-3f55-4a43-b38d-042ac1f71395",
                             Email = "velma@zmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "VELMA@ZMAIL.COM",
-                            NormalizedUserName = "SARCASTICGIRL",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEZ29NnVmgC0aWjXhFMNRXLCpoSAjBqSIbYy1iiX4xxg8Z4LOgWG3GJ+X2SatijtgQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHkLusmk1bOD0gAGn9yYq42UcdrtcGWTLvERMykdwT8cLxUDQFsaDD6MSFuDqd+Y5w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8ee7476d-975f-4f9f-aa9f-c1db7be3133f",
+                            SecurityStamp = "c2bd6394-6d2b-45d6-806b-56c766f7b508",
                             TwoFactorEnabled = false,
                             UserName = "SarcasticGirl"
                         },
@@ -240,15 +241,13 @@ namespace server.Migrations
                         {
                             Id = "93d03138-c18b-413a-8001-35e331fe314e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b9cabc30-9877-46b6-8ba0-ca897573eaa9",
+                            ConcurrencyStamp = "1bd5654f-46bf-4391-97cf-2dd4641d37f6",
                             Email = "bernard@zmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "BERNARD@ZMAIL.COM",
-                            NormalizedUserName = "BARNEY",
-                            PasswordHash = "AQAAAAEAACcQAAAAEL2TJqeA7RxRtO5UbDY4g/DjCN+/7AwVuLOhByPtvjS80rd7fMYLE96VbGhxcm5QRg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMllz2iU1KxlaIdg1F6t7to/xVIlHBjV3KHorSMZvD2vKbgV9lTU7oGYyB/dV1vwnA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3844183b-8718-4589-a0cf-08a2d2a2e7bb",
+                            SecurityStamp = "0f2a9749-603f-4e13-a104-cdfb5bde1acc",
                             TwoFactorEnabled = false,
                             UserName = "Barney"
                         },
@@ -256,15 +255,13 @@ namespace server.Migrations
                         {
                             Id = "decd8082-310b-4ba6-b62c-fce801382f02",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ed45b643-5ecf-45a2-8f91-ad975bb7444d",
+                            ConcurrencyStamp = "575f82af-9da1-4168-be49-00accf66a67b",
                             Email = "fred@zmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "FRED@ZMAIL.COM",
-                            NormalizedUserName = "TWINKLETOES",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEodb4rKmpqKM7ITwTTihwRmahpdPn/B94wXj11ilyroJJre5kq5Ep7QSbq9RPtetA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBCfnxA/Cf1VHQYalq+3aZe1FwclzIpZ70ETfoLf8IOUIJ5X3OWEdgQ8sSEJ98FlIw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e87fa40b-7142-4291-9611-c7d7acc67424",
+                            SecurityStamp = "39bdd9c7-a70b-4598-83d7-aa3020709bf6",
                             TwoFactorEnabled = false,
                             UserName = "Twinkletoes"
                         });

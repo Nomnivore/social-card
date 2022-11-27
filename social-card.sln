@@ -4,8 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "client", "client\client.esproj", "{4397E9DB-F04C-4457-B7C5-F85D6CBC885D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D2EE30E1-9E74-4F68-BC50-DD0701AA667D} = {D2EE30E1-9E74-4F68-BC50-DD0701AA667D}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "server", "server\server.csproj", "{D2EE30E1-9E74-4F68-BC50-DD0701AA667D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "server", "server\server.csproj", "{D2EE30E1-9E74-4F68-BC50-DD0701AA667D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

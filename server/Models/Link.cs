@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace server.Models
 {
@@ -9,6 +10,7 @@ namespace server.Models
 
         [Required]
         public string UserId { get; set; }
+        [JsonIgnore] // prevent reference loops in http response
         public AppUser User { get; set; }
 
         [Required]
