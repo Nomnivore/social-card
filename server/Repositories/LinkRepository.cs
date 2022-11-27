@@ -1,4 +1,5 @@
-﻿using server.DbContext;
+﻿using Microsoft.EntityFrameworkCore;
+using server.DbContext;
 using server.Models;
 
 namespace server.Repositories
@@ -9,11 +10,24 @@ namespace server.Repositories
         {
         }
 
-        public Task<List<Link>> GetLinksByUserAsync(AppUser user)
+        public async Task<Link?> GetLinkByIdAsync(int id)
         {
-            if (user == null) throw new ArgumentNullException("user");
+            return await ApplicationDbContext.Links.SingleOrDefaultAsync(x => x.Id == id);
+        }
 
-            throw new NotImplementedException();
+        public IQueryable<Link> GetLinksByUserId(string userId)
+        {
+            if (userId == null) throw new ArgumentNullException("userId");
+
+            try
+            {
+                return ApplicationDbContext.Links.Where(x => x.UserId == userId);
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not retrieve links for user {userId}: {e.Message}");
+            }
         }
     }
 }

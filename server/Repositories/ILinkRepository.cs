@@ -4,6 +4,8 @@ namespace server.Repositories
 {
     public interface ILinkRepository : IRepository<Link>
     {
-        Task<List<Link>> GetLinksByUserAsync(AppUser user);
+        IQueryable<Link> GetLinksByUserId(string userId);
+
+        Task<Link?> GetLinkByIdAsync(int id);
     }
 }

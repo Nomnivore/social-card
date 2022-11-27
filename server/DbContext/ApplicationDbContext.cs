@@ -48,6 +48,8 @@ namespace server.DbContext
             users.ForEach(user =>
             {
                 user.PasswordHash = ph.HashPassword(user, "Password1!");
+                user.NormalizedUserName = user.UserName.ToUpper().Normalize();
+                user.NormalizedEmail = user.Email.ToUpper().Normalize();
             });
 
             builder.Entity<AppUser>().HasData(users);

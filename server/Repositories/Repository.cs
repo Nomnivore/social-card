@@ -63,6 +63,27 @@ namespace server.Repositories
             }
         }
 
+        public async Task<T> RemoveAsync(T item)
+        {
+            if (item == null)
+            {
+                throw new ArgumentNullException($"{nameof(RemoveAsync)} item must not be null");
+            }
+
+            try
+            {
+                ApplicationDbContext.Remove(item);
+                await ApplicationDbContext.SaveChangesAsync();
+
+                return item;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"{nameof(item)} could not be deleted: {ex.Message}");
+            }
+            
+        }
+
         private bool disposed = false;
 
         protected virtual void Dispose(bool disposing)

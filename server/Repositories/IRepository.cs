@@ -6,5 +6,6 @@
 
         Task<T> AddAsync(T item);
         Task<T> UpdateAsync(T item);
+        Task<T> RemoveAsync(T item);
     }
 }
