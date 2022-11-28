@@ -4,16 +4,16 @@ import { useState, useEffect } from "react";
 const Directory = () => {
   const sampleData = [
     {
-      cardInitials: "FF",
-      userName: "@FredFlintstone",
+      id: 1,
+      userName: "FredFlintstone",
     },
     {
-      cardInitials: "BR",
-      userName: "@BarneyRubble",
+      id: 2,
+      userName: "BarneyRubble",
     },
     {
-      cardInitials: "VD",
-      userName: "@VelmaDinkley",
+      id: 3,
+      userName: "VelmaDinkley",
     },
   ];
   const [data, setData] = useState([]);
@@ -35,24 +35,26 @@ const Directory = () => {
     setData(sortedData);
   }
 
-  const listUsers = data.map((object, i) => {
+  const listUsers = data.map((object) => {
     return (
       <CardPreview
-        key={i}
-        cardInitials={object.cardInitials}
-        userName={object.userName}
+        key={object.id}
+        cardInitials={object.userName.slice(0, 2).toUpperCase()}
+        userName={"@" + object.userName}
       />
     );
   });
   return (
     <div>
       <h1 className="text-5xl flex justify-center p-5">Directory</h1>
-      <button className="btn btn-primary" onClick={ascend}>
-        Ascend
-      </button>
-      <button className="btn btn-primary" onClick={descend}>
-        Descend
-      </button>
+      <div className="card-actions flex justify-evenly p-4 ">
+        <button className="btn btn-primary" onClick={ascend}>
+          Ascend
+        </button>
+        <button className="btn btn-success" onClick={descend}>
+          Descend
+        </button>
+      </div>
       <div className="flex justify-evenly">{listUsers}</div>
     </div>
   );
