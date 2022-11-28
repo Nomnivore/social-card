@@ -24,11 +24,16 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-          <h1 className="text-3xl font-bold underline">
-              Hello world!
-          </h1>
-      <p>{forecasts[0].date ?? "You might need to refresh"}</p>
+    <div className="flex justify-center pt-10">
+      <button className="btn btn-primary col-2">
+        <a
+          href="https://localhost:7175/swagger/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Swagger UI
+        </a>
+      </button>
     </div>
   );
 };

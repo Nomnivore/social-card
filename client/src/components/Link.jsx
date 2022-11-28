@@ -1,9 +1,7 @@
 import PropTypes from "prop-types";
 
 function Link(props) {
-  return (
-    <button className="btn btn-wide btn-secondary">{props.linkName}</button>
-  );
+  return <button className="btn btn-accent">{props.linkName}</button>;
 }
 Link.propTypes = {
   linkName: PropTypes.string,
