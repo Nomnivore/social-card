@@ -51,7 +51,7 @@ const Directory = () => {
         <button className="btn btn-primary" onClick={ascend}>
           Ascend
         </button>
-        <button className="btn btn-success" onClick={descend}>
+        <button className="btn btn-accent" onClick={descend}>
           Descend
         </button>
       </div>
