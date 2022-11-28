@@ -1,7 +1,7 @@
 ﻿/* eslint-disable no-undef */
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
-const context = ["/weatherforecast"];
+const context = ["/api"];
 
 module.exports = function (app) {
   const appProxy = createProxyMiddleware(context, {
@@ -10,4 +10,5 @@ module.exports = function (app) {
   });
 
   app.use(appProxy);
+
 };

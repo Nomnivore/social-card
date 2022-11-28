@@ -9,7 +9,7 @@ using server.ViewModels;
 namespace server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [Produces("application/json")]
     public class CardController : ControllerBase
     {
