@@ -25,10 +25,19 @@ const Home = () => {
 
   return (
     <div>
-          <h1 className="text-3xl font-bold underline">
-              Hello world!
-          </h1>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <p>{forecasts[0].date ?? "You might need to refresh"}</p>
+      <p>
+        Check out{" "}
+        <a
+          href="https://localhost:7175/swagger/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Server
+        </a>
+        .
+      </p>
     </div>
   );
 };
