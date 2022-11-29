@@ -7,7 +7,7 @@ const Details = () => {
   const api = useAPI();
   const { username } = useParams();
   const [myLinks, setMyLinks] = useState([]);
-  const initials = username.slice(1, 3).toUpperCase();
+  const initials = username.slice(0, 2).toUpperCase();
 
   useEffect(() => {
     const abort = getData();

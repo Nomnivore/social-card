@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function CardPreview({ cardInitials, username }) {
   return (
-    <div className="card lg:card-side bg-success shadow-xl  ">
+    <div className="card lg:card-side bg-success shadow-xl">
       <div className="card-body">
         <div className="grid place-items-center">
           <Link to={`/@${username}`}>
