@@ -3,12 +3,20 @@ import InputCard from "../components/InputCard";
 const Register = () => {
   const registerData = [
     {
+        inputLabel: "Email",
+        placeholder: "type email here",
+      },
+    {
       inputLabel: "Username",
       placeholder: "type username here",
     },
     {
       inputLabel: "Password",
       placeholder: "type password here",
+    },
+    {
+        inputLabel: "Confirm Password",
+        placeholder: "re-type password here",
     },
   ];
   return (
