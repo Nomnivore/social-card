@@ -159,7 +159,7 @@ const Register = () => {
           </div>
           <div className="card-actions justify-center">
             <Link to="/login" className="link link-primary">
-              Log In
+              Already Registered? Log in here.
             </Link>
           </div>
         </div>
