@@ -1,7 +1,7 @@
 import InputCard from "../components/InputCard";
 import { useCallback, useState } from "react";
 import { useAPI } from "../hooks/useAPI";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -69,20 +69,102 @@ const Register = () => {
   ];
 
   return (
-    <>
-      <div className="flex justify-evenly pt-10">
-        <InputCard
-          inputTitle="Sign Up"
-          inputArray={registerInputs}
-          buttonName="Sign Up"
-          pageName="/login"
-          linkName="Already Registered? Login here."
-          buttonClick={submitForm}
-        />
+    //<>
+    //  <div className="flex justify-evenly pt-10">
+    //    <InputCard
+    //      inputTitle="Sign Up"
+    //      inputArray={registerInputs}
+    //      buttonName="Sign Up"
+    //      pageName="/login"
+    //      linkName="Already Registered? Login here."
+    //      buttonClick={submitForm}
+    //    />
 
-        {/* <p>{passwordsMatch() ? " " : "Passwords do not match!"}</p> */}
+    //    {/* <p>{passwordsMatch() ? " " : "Passwords do not match!"}</p> */}
+    //  </div>
+    //</>
+    <div className="flex justify-evenly pt-10">
+      <div className="card w-96 bg-base-200 shadow-xl">
+        <div className="card-body">
+          <h2 className="card-title flex justify-center">Sign Up</h2>
+          <div className="grid gap-4">
+            <div className="form-control">
+              <label className="input-group input-group-vertical pb-3">
+                <span>Email</span>
+                <input
+                  type="email"
+                  placeholder="type email here"
+                  className="input input-bordered"
+                  onChange={defaultHandler(setEmail)}
+                />
+              </label>
+
+              <label className="input-group input-group-vertical pb-3">
+                <span>Username</span>
+                <input
+                  type="text"
+                  placeholder="type username here"
+                  className="input input-bordered"
+                  onChange={defaultHandler(setUsername)}
+                />
+              </label>
+
+              <label className="input-group input-group-vertical pb-3">
+                <span>Password</span>
+                <input
+                  type="password"
+                  placeholder="Type password here"
+                  className="input input-bordered"
+                  onChange={defaultHandler(setPassword)}
+                />
+              </label>
+
+              <label className="input-group input-group-vertical pb-3">
+                <span>Confirm Password</span>
+                <input
+                  type="password"
+                  placeholder="Re-type password here"
+                  className="input input-bordered"
+                  onChange={defaultHandler(setPasswordConfirm)}
+                />
+              </label>
+            </div>
+          </div>
+          {passwordsMatch() ? (
+            ""
+          ) : (
+            <div className="alert alert-error shadow-lg">
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="stroke-current flex-shrink-0 h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span>Passwords do not match!</span>
+              </div>
+            </div>
+          )}
+          <div className="card-actions flex justify-end">
+            <button className="btn btn-primary" onClick={submitForm()}>
+              Sign Up
+            </button>
+          </div>
+          <div className="card-actions justify-center">
+            <Link to="/login" className="link link-primary">
+              Log In
+            </Link>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 export default Register;
