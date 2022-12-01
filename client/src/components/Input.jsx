@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function Input({ inputLabel, placeholder }) {
+function Input({ inputLabel, placeholder, change }) {
   return (
     <div className="form-control">
       <label className="input-group input-group-vertical">
@@ -9,6 +9,7 @@ function Input({ inputLabel, placeholder }) {
           type="text"
           placeholder={placeholder}
           className="input input-bordered"
+          onChange={change}
         />
       </label>
     </div>
@@ -17,5 +18,6 @@ function Input({ inputLabel, placeholder }) {
 Input.propTypes = {
   inputLabel: PropTypes.string,
   placeholder: PropTypes.string,
+  change: PropTypes.func,
 };
 export default Input;
