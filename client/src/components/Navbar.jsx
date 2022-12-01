@@ -55,7 +55,9 @@ function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <Link to={"/login"} className="btn">
+          Get started
+        </Link>
       </div>
     </div>
   );
