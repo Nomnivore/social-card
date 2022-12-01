@@ -106,7 +106,7 @@ const Directory = () => {
         <div className="form-control">
           <input
             type="text"
-            placeholder="Search users�"
+            placeholder="Search users..."
             className="input input-bordered"
             onChange={handleSearchChanged}
           />
