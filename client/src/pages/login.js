@@ -12,7 +12,8 @@ const Login = () => {
 
   const api = useAPI();
 
-  function submitForm() {
+  function submitForm(e) {
+    e.preventDefault();
     if (!username || !password)
       return console.log("Please fill out all required fields"); // convert to user-facing msg
 
@@ -46,7 +47,7 @@ const Login = () => {
   return (
     <div className="flex justify-evenly pt-10">
       <div className="card w-96 bg-base-200 shadow-xl">
-        <div className="card-body">
+        <form onSubmit={submitForm} className="card-body">
           <h2 className="card-title flex justify-center">Log In</h2>
           <div className="grid gap-4">
             <div className="form-control">
@@ -72,7 +73,7 @@ const Login = () => {
             </div>
           </div>
           <div className="card-actions flex justify-end">
-            <button className="btn btn-primary" onClick={submitForm}>
+            <button type="submit" className="btn btn-primary">
               Log In
             </button>
           </div>
@@ -81,7 +82,7 @@ const Login = () => {
               Not already registered? Sign up here.
             </Link>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
