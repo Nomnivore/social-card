@@ -60,6 +60,9 @@ const Register = () => {
                   type="email"
                   placeholder="type email here"
                   className="input input-bordered"
+                  required
+                  pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$"
+                  title="email@example.com"
                   onChange={defaultHandler(setEmail)}
                 />
               </label>
@@ -70,6 +73,9 @@ const Register = () => {
                   type="text"
                   placeholder="type username here"
                   className="input input-bordered"
+                  required
+                  pattern="^[a-z\d\-_]+$"
+                  title="Alphanumerics and _"
                   onChange={defaultHandler(setUsername)}
                 />
               </label>
@@ -80,6 +86,10 @@ const Register = () => {
                   type="password"
                   placeholder="Type password here"
                   className="input input-bordered"
+                  required
+                  minLength={8}
+                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]*$"
+                  title="8 or more consisting of uppercase letters, lowercase letters, numbers, & special characters"
                   onChange={defaultHandler(setPassword)}
                 />
               </label>
@@ -90,6 +100,7 @@ const Register = () => {
                   type="password"
                   placeholder="Re-type password here"
                   className="input input-bordered"
+                  required
                   onChange={defaultHandler(setPasswordConfirm)}
                 />
               </label>

@@ -57,6 +57,7 @@ const Login = () => {
                   type="text"
                   placeholder="type username here"
                   className="input input-bordered"
+                  required
                   onChange={defaultHandler(setUsername)}
                 />
               </label>
@@ -67,6 +68,7 @@ const Login = () => {
                   type="password"
                   placeholder="type password here"
                   className="input input-bordered"
+                  required
                   onChange={defaultHandler(setPassword)}
                 />
               </label>
