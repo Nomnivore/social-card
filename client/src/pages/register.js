@@ -1,4 +1,3 @@
-import InputCard from "../components/InputCard";
 import { useCallback, useState } from "react";
 import { useAPI } from "../hooks/useAPI";
 import { useNavigate, Link } from "react-router-dom";
@@ -12,11 +11,14 @@ const Register = () => {
 
   const api = useAPI();
 
-  function submitForm() {
-    if (!email || !username || !password || !passwordConfirm)
-      console.log("Please fill out all required fields"); // convert this to user-facing msg
+  function submitForm(e) {
+    e.preventDefault();
 
-    if (password !== passwordConfirm) console.log("Password fields must match"); // convert to user-facing msg
+    if (!email || !username || !password || !passwordConfirm)
+      return console.log("Please fill out all required fields"); // convert this to user-facing msg
+
+    if (password !== passwordConfirm)
+      return console.log("Password fields must match"); // convert to user-facing msg
 
     // additional validation checks could occur here, such as regex matching
 
@@ -39,53 +41,16 @@ const Register = () => {
   }
 
   const passwordsMatch = useCallback(
-    () => password && password === passwordConfirm,
+    () => (password && password === passwordConfirm) || false,
     [password, passwordConfirm]
   );
 
   const defaultHandler = (setState) => (ev) => setState(ev.target.value);
 
-  const registerInputs = [
-    {
-      inputLabel: "Email",
-      placeholder: "type email here",
-      change: defaultHandler(setEmail),
-    },
-    {
-      inputLabel: "Username",
-      placeholder: "type username here",
-      change: defaultHandler(setUsername),
-    },
-    {
-      inputLabel: "Password",
-      placeholder: "type password here",
-      change: defaultHandler(setPassword),
-    },
-    {
-      inputLabel: "Confirm Password",
-      placeholder: "re-type password here",
-      change: defaultHandler(setPasswordConfirm),
-    },
-  ];
-
   return (
-    //<>
-    //  <div className="flex justify-evenly pt-10">
-    //    <InputCard
-    //      inputTitle="Sign Up"
-    //      inputArray={registerInputs}
-    //      buttonName="Sign Up"
-    //      pageName="/login"
-    //      linkName="Already Registered? Login here."
-    //      buttonClick={submitForm}
-    //    />
-
-    //    {/* <p>{passwordsMatch() ? " " : "Passwords do not match!"}</p> */}
-    //  </div>
-    //</>
     <div className="flex justify-evenly pt-10">
       <div className="card w-96 bg-base-200 shadow-xl">
-        <div className="card-body">
+        <form onSubmit={submitForm} className="card-body">
           <h2 className="card-title flex justify-center">Sign Up</h2>
           <div className="grid gap-4">
             <div className="form-control">
@@ -95,6 +60,9 @@ const Register = () => {
                   type="email"
                   placeholder="type email here"
                   className="input input-bordered"
+                  required
+                  pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$"
+                  title="email@example.com"
                   onChange={defaultHandler(setEmail)}
                 />
               </label>
@@ -105,6 +73,9 @@ const Register = () => {
                   type="text"
                   placeholder="type username here"
                   className="input input-bordered"
+                  required
+                  pattern="^[a-z\d\-_]+$"
+                  title="Alphanumerics and _"
                   onChange={defaultHandler(setUsername)}
                 />
               </label>
@@ -115,6 +86,10 @@ const Register = () => {
                   type="password"
                   placeholder="Type password here"
                   className="input input-bordered"
+                  required
+                  minLength={8}
+                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]*$"
+                  title="8 or more consisting of uppercase letters, lowercase letters, numbers, & special characters"
                   onChange={defaultHandler(setPassword)}
                 />
               </label>
@@ -125,14 +100,13 @@ const Register = () => {
                   type="password"
                   placeholder="Re-type password here"
                   className="input input-bordered"
+                  required
                   onChange={defaultHandler(setPasswordConfirm)}
                 />
               </label>
             </div>
           </div>
-          {passwordsMatch() ? (
-            ""
-          ) : (
+          {password && passwordConfirm && !passwordsMatch() ? (
             <div className="alert alert-error shadow-lg">
               <div>
                 <svg
@@ -151,9 +125,11 @@ const Register = () => {
                 <span>Passwords do not match!</span>
               </div>
             </div>
+          ) : (
+            ""
           )}
           <div className="card-actions flex justify-end">
-            <button className="btn btn-primary" onClick={submitForm()}>
+            <button type="submit" className="btn btn-primary">
               Sign Up
             </button>
           </div>
@@ -162,7 +138,7 @@ const Register = () => {
               Already Registered? Log in here.
             </Link>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

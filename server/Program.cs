@@ -90,6 +90,11 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_";
+});
+
 
 var app = builder.Build();
 
