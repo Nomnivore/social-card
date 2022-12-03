@@ -1,5 +1,5 @@
 import CardPreview from "../components/CardPreview";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useAPI } from "../hooks/useAPI";
 import linkTypes from "../util/linkTypes";
 import debounce from "../util/debounce";
@@ -53,13 +53,15 @@ const Directory = () => {
     setData(sortedData);
   }
 
-  const handleSearchChanged = useCallback(
-    debounce((ev) => {
-      const inputValue = ev.target.value;
-      const value = inputValue === "" ? null : inputValue;
+  const handleSearchChanged = useMemo(
+    () =>
+      debounce((ev) => {
+        const inputValue = ev.target.value;
+        const value = inputValue === "" ? null : inputValue;
 
-      setSearchQuery(value);
-    })
+        setSearchQuery(value);
+      }),
+    []
   );
 
   function handleFilterChanged(ev) {
