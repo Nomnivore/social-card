@@ -1,4 +1,3 @@
-import InputCard from "../components/InputCard";
 import { useCallback, useState } from "react";
 import { useAPI } from "../hooks/useAPI";
 import { useNavigate, Link } from "react-router-dom";
@@ -39,50 +38,13 @@ const Register = () => {
   }
 
   const passwordsMatch = useCallback(
-    () => password && password === passwordConfirm,
+    () => (password && password === passwordConfirm) || false,
     [password, passwordConfirm]
   );
 
   const defaultHandler = (setState) => (ev) => setState(ev.target.value);
 
-  const registerInputs = [
-    {
-      inputLabel: "Email",
-      placeholder: "type email here",
-      change: defaultHandler(setEmail),
-    },
-    {
-      inputLabel: "Username",
-      placeholder: "type username here",
-      change: defaultHandler(setUsername),
-    },
-    {
-      inputLabel: "Password",
-      placeholder: "type password here",
-      change: defaultHandler(setPassword),
-    },
-    {
-      inputLabel: "Confirm Password",
-      placeholder: "re-type password here",
-      change: defaultHandler(setPasswordConfirm),
-    },
-  ];
-
   return (
-    //<>
-    //  <div className="flex justify-evenly pt-10">
-    //    <InputCard
-    //      inputTitle="Sign Up"
-    //      inputArray={registerInputs}
-    //      buttonName="Sign Up"
-    //      pageName="/login"
-    //      linkName="Already Registered? Login here."
-    //      buttonClick={submitForm}
-    //    />
-
-    //    {/* <p>{passwordsMatch() ? " " : "Passwords do not match!"}</p> */}
-    //  </div>
-    //</>
     <div className="flex justify-evenly pt-10">
       <div className="card w-96 bg-base-200 shadow-xl">
         <div className="card-body">
@@ -130,9 +92,7 @@ const Register = () => {
               </label>
             </div>
           </div>
-          {passwordsMatch() ? (
-            ""
-          ) : (
+          {password && passwordConfirm && !passwordsMatch() ? (
             <div className="alert alert-error shadow-lg">
               <div>
                 <svg
@@ -151,6 +111,8 @@ const Register = () => {
                 <span>Passwords do not match!</span>
               </div>
             </div>
+          ) : (
+            ""
           )}
           <div className="card-actions flex justify-end">
             <button className="btn btn-primary" onClick={submitForm()}>
