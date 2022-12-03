@@ -13,9 +13,10 @@ const Register = () => {
 
   function submitForm() {
     if (!email || !username || !password || !passwordConfirm)
-      console.log("Please fill out all required fields"); // convert this to user-facing msg
+      return console.log("Please fill out all required fields"); // convert this to user-facing msg
 
-    if (password !== passwordConfirm) console.log("Password fields must match"); // convert to user-facing msg
+    if (password !== passwordConfirm)
+      return console.log("Password fields must match"); // convert to user-facing msg
 
     // additional validation checks could occur here, such as regex matching
 

@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 function Navbar() {
+  const { auth } = useAuth();
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -55,9 +58,18 @@ function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to={"/login"} className="btn">
-          Get started
-        </Link>
+        {auth?.token ? (
+          <>
+            <span>{auth.username}</span>
+            <Link to="logout" className="btn btn-ghost">
+              Logout
+            </Link>
+          </>
+        ) : (
+          <Link to={"/login"} className="btn">
+            Get started
+          </Link>
+        )}
       </div>
     </div>
   );
