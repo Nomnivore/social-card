@@ -9,5 +9,7 @@ namespace server.Services
         Task<Link?> GetLinkByIdAsync(int id);
 
         List<Link> GetLinksByUserId(string userId);
+
+        Task DeleteLinksById(List<int> ids);
     }
 }
