@@ -1,6 +1,6 @@
 ﻿namespace server.ViewModels
 {
-    public class IndexResponse : Response
+    public class IndexResponse
     {
         public List<CardResponse> Cards { get; set; }
     }
