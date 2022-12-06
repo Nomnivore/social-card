@@ -74,7 +74,6 @@ const Register = () => {
                   placeholder="type username here"
                   className="input input-bordered"
                   required
-                  pattern="^[a-z\d\-_]+$"
                   title="Alphanumerics and _"
                   onChange={defaultHandler(setUsername)}
                 />

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
@@ -35,6 +36,28 @@ namespace server.Controllers
             var links = _linkService.GetLinksByUserId(user.Id).ToList();
 
             return Ok(new CardResponse { Username = user.UserName, Links = links });
+        }
+
+        // Delete route: Accepts a list of IDs corresponding to Links that should be deleted
+        [HttpDelete]
+        [Authorize]
+        [Route("{username?}")]
+        public async Task<IActionResult> Delete(string username, [FromBody] DeleteRequest req)
+        {
+            AppUser user = await _userManager.FindByNameAsync(username);
+
+            if (user == null)
+                return NotFound(new Response { Error = true, Message = "User not found" });
+
+            if (user.UserName != User?.Identity?.Name)
+            {
+                return Unauthorized(new Response { Error = true, Message = "You can only modify your own card" });
+            }
+
+            // authorized
+            await _linkService.DeleteLinksById(req.Ids);
+
+            return Ok();
         }
 
         [HttpGet]

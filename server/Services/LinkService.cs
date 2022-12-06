@@ -30,5 +30,15 @@ namespace server.Services
 
             return links;
         }
+
+        public async Task DeleteLinksById(List<int> ids)
+        {
+            foreach (var linkId in ids)
+            {
+                var link = await GetLinkByIdAsync(linkId);
+                if (link != null)
+                    await _linkRepository.RemoveAsync(link);
+            }
+        }
     }
 }

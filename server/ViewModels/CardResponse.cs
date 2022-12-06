@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace server.ViewModels
 {
-    public class CardResponse : Response
+    public class CardResponse
     {
         public string Username = "";
 
