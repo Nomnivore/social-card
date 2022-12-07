@@ -1,6 +1,7 @@
 import Avatar from "./Avatar";
 import Link from "./Link";
 import PropTypes from "prop-types";
+import { useAuth } from "../hooks/useAuth";
 
 function Card({ cardInitials, userName, myLinks }) {
   return (
@@ -14,7 +15,15 @@ function Card({ cardInitials, userName, myLinks }) {
           ))}
         </div>
         <div className="card-actions flex justify-evenly pt-4 ">
-          <button className="btn btn-primary">Edit</button>
+            {auth?.token?(
+                <Link to="editor" className="btn btn-primary">
+                    Edit Card
+                </Link>
+            ): (
+                <Link to={"/login"} className="btn">
+                    Log in to edit Card
+                </Link>
+            )}
           <button className="btn btn-secondary">Save</button>
         </div>
       </div>
@@ -27,3 +36,4 @@ Card.propTypes = {
   myLinks: PropTypes.array,
 };
 export default Card;
+
