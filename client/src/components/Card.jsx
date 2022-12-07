@@ -14,10 +14,20 @@ function Card({ cardInitials, userName, myLinks }) {
           ))}
         </div>
         <div className="card-actions flex justify-evenly pt-4 ">
-          <button className="btn btn-primary">Edit</button>
+        <div className="card-actions flex justify-evenly pt-4 ">
+            {auth?.token?(
+                <Link to="editor" className="btn btn-primary">
+                    Edit Card
+                </Link>
+            ): (
+                <Link to={"/login"} className="btn">
+                    Log in to edit Card
+                </Link>
+            )}
           <button className="btn btn-secondary">Save</button>
         </div>
       </div>
+    </div>
     </div>
   );
 }

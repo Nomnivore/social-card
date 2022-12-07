@@ -14,20 +14,8 @@ function Card({ cardInitials, userName, myLinks }) {
             <Link linkName={object} key={i} />
           ))}
         </div>
-        <div className="card-actions flex justify-evenly pt-4 ">
-            {auth?.token?(
-                <Link to="editor" className="btn btn-primary">
-                    Edit Card
-                </Link>
-            ): (
-                <Link to={"/login"} className="btn">
-                    Log in to edit Card
-                </Link>
-            )}
-          <button className="btn btn-secondary">Save</button>
         </div>
       </div>
-    </div>
   );
 }
 Card.propTypes = {
