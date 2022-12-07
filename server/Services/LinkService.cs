@@ -14,7 +14,12 @@ namespace server.Services
 
         public Task<Link> AddLinkAsync(Link link)
         {
-            throw new NotImplementedException();
+            return _linkRepository.AddAsync(link);
+        }
+
+        public Task<Link> UpdateLinkAsync(Link link)
+        {
+            return _linkRepository.UpdateAsync(link);
         }
 
         public async Task<Link?> GetLinkByIdAsync(int id)

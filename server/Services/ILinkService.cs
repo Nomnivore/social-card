@@ -11,5 +11,7 @@ namespace server.Services
         List<Link> GetLinksByUserId(string userId);
 
         Task DeleteLinksById(List<int> ids);
+
+        Task<Link> UpdateLinkAsync(Link link);
     }
 }
