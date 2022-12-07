@@ -28,7 +28,9 @@ const Details = () => {
         // temporary simplification of data to work with the current Card component
         // this can be omitted in future when Card adds support for all fields
         // id, url, linkType, etc
-        const links = data.map((x) => x.url);
+        const links = data.map((x) => {
+          return { url: x.url, linkType: x.linkType };
+        });
         setMyLinks(links);
       })
       .catch((err) => {

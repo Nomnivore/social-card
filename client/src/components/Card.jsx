@@ -12,8 +12,8 @@ function Card({ cardInitials, userName, myLinks }) {
         <Avatar initials={cardInitials} />
         <p className="flex justify-center text-success-content">{userName}</p>
         <div className="grid gap-4">
-          {myLinks.map((object, i) => (
-            <LinkItem linkName={object} key={i} />
+          {myLinks.map((link, i) => (
+            <LinkItem linkName={link.url} key={i} linkType={link.linkType} />
           ))}
         </div>
 

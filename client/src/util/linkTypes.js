@@ -1,7 +1,11 @@
+import { FaYoutube } from "react-icons/fa";
+
 const linkTypes = [
   {
     name: "YouTube",
-    icon: null,
+    icon: (props, classes = "") => (
+      <FaYoutube {...props} className={`text-red-700 ${classes}`} />
+    ),
   },
   {
     name: "GitHub",
