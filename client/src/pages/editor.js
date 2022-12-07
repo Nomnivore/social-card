@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTokenAPI } from "../hooks/useTokenAPI";
 import { useParams, useNavigate } from "react-router-dom";
-import AddLink from "../components/AddLink";
+import EditLink from "../components/EditLink";
 import { useAuth } from "../hooks/useAuth";
 import { useAPI } from "../hooks/useAPI";
 
@@ -13,6 +13,7 @@ const Editor = () => {
   const [deletedIds, setDeletedIds] = useState([]);
   const [myLinks, setMyLinks] = useState([]);
   const navigate = useNavigate();
+  const [saveBtnDisplay, setSaveBtnDisplay] = useState("Save all");
 
   const cardRoute = `card/${username}`;
 
@@ -34,10 +35,12 @@ const Editor = () => {
   }, []);
 
   function handleAddLink() {
+    setSaveBtnDisplay("Save all");
     setMyLinks((oldLinks) => [...oldLinks, {}]);
   }
 
   function handleDeleteLink(idx) {
+    setSaveBtnDisplay("Save all");
     setMyLinks((oldLinks) =>
       oldLinks.filter((link, i) => {
         if (i == idx) {
@@ -50,6 +53,7 @@ const Editor = () => {
   }
 
   function handleUrlChanged(idx, val) {
+    setSaveBtnDisplay("Save all");
     setMyLinks((oldLinks) =>
       oldLinks.map((link, i) => {
         if (i == idx) link.url = val;
@@ -60,6 +64,7 @@ const Editor = () => {
   }
 
   function handleTypeChanged(idx, val) {
+    setSaveBtnDisplay("Save all");
     setMyLinks((oldLinks) =>
       oldLinks.map((link, i) => {
         if (i == idx) link.linkType = val;
@@ -76,7 +81,7 @@ const Editor = () => {
         .post(`${cardRoute}/delete`, {
           ids: deletedIds,
         })
-        .then((res) => console.log(res.status)) // just confirming it works
+        .then((res) => setSaveBtnDisplay("Saved!"))
         .catch((err) => console.log(err));
 
     // add/update links
@@ -84,7 +89,7 @@ const Editor = () => {
       .post(cardRoute, {
         links: myLinks,
       })
-      .then((res) => console.log(res)) // confirming again
+      .then((res) => setSaveBtnDisplay("Saved!"))
       .catch((err) => console.log(err));
   }
 
@@ -96,7 +101,7 @@ const Editor = () => {
         <div className="card-body">
           {/* TODO: IMPLEMENT COMPONENT FOR ADD LINK */}
           {myLinks.map((link, i) => (
-            <AddLink
+            <EditLink
               key={i}
               idx={i}
               linkType={link.linkType}
@@ -112,7 +117,7 @@ const Editor = () => {
               Add Link
             </button>
             <button className="btn btn-secondary" onClick={handleSave}>
-              Save All
+              {saveBtnDisplay}
             </button>
           </div>
         </div>

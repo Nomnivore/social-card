@@ -2,7 +2,7 @@ import linkTypes from "../util/linkTypes";
 import PropTypes from "prop-types";
 import { VscTrash } from "react-icons/vsc";
 
-function AddLink({
+function EditLink({
   idx,
   linkType,
   url,
@@ -44,7 +44,7 @@ function AddLink({
   );
 }
 
-AddLink.propTypes = {
+EditLink.propTypes = {
   idx: PropTypes.number,
   linkType: PropTypes.number,
   url: PropTypes.string,
@@ -53,4 +53,4 @@ AddLink.propTypes = {
   handleTypeChanged: PropTypes.func,
 };
 
-export default AddLink;
+export default EditLink;
