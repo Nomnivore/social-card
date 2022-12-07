@@ -8,6 +8,7 @@ import Logout from "./pages/logout";
 import Register from "./pages/register";
 import UserRoute from "./components/UserRoute";
 import GuestRoute from "./components/GuestRoute";
+import Editor from "./pages/editor";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/directory" element={<Directory />} />
+        <Route path="/editor" element={<Editor />}/>
         <Route path="/@:username" element={<Details />} />
 
         <Route element={<GuestRoute />}>
