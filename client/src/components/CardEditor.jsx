@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { useAuth } from "../hooks/useAuth";
 
 function Card({ cardInitials, userName, myLinks }) {
+    const { auth } = useAuth();
   return (
     <div className="card w-96 bg-success shadow-xl  ">
       <div className="card-body">
