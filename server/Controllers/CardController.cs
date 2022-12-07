@@ -39,9 +39,10 @@ namespace server.Controllers
         }
 
         // Delete route: Accepts a list of IDs corresponding to Links that should be deleted
-        [HttpDelete]
+        // using POST so that it can accept JSON
+        [HttpPost]
         [Authorize]
-        [Route("{username?}")]
+        [Route("{username?}/delete")]
         public async Task<IActionResult> Delete(string username, [FromBody] DeleteRequest req)
         {
             AppUser user = await _userManager.FindByNameAsync(username);
