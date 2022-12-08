@@ -6,5 +6,12 @@ module.exports = {
     extend: {},
   },
     plugins: [require("@tailwindcss/typography"), require("daisyui")],
-
+  daisyui: {
+    themes: ["fantasy"]
+  },
+  extend: {
+    backgroundImage: {
+      'logo': "url('../src/images/socialcardlogo.png')",
+    }
+  }
 };
