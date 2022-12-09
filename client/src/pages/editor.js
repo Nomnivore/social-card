@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import EditLink from "../components/EditLink";
 import { useAuth } from "../hooks/useAuth";
 import { useAPI } from "../hooks/useAPI";
+import { Link } from "react-router-dom";
 
 const Editor = () => {
   const { username } = useParams();
@@ -95,9 +96,9 @@ const Editor = () => {
 
   return (
     <div className="flex justify-evenly pt-10">
-      <div className="card w-146 bg-base-100 shadow-xl">
+      <div className="card w-146 bg-base-100 shadow-xl shadow-info-content bg-secondary bg-opacity-40">
         {/* TODO: Implement user name here */}
-        <h2 className="card-title flex justify-center">{username}</h2>
+        <h2 className="card-title flex justify-center mt-8 text-2xl">@{username}</h2>
         <div className="card-body">
           {/* TODO: IMPLEMENT COMPONENT FOR ADD LINK */}
           {myLinks.map((link, i) => (
@@ -119,6 +120,9 @@ const Editor = () => {
             <button className="btn btn-secondary" onClick={handleSave}>
               {saveBtnDisplay}
             </button>
+            <Link to="/directory">
+              <button className="btn btn-primary">Directory</button>
+            </Link>
           </div>
         </div>
       </div>

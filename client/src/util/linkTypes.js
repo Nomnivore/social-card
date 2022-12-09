@@ -1,4 +1,4 @@
-import { FaYoutube } from "react-icons/fa";
+import { FaLinkedin, FaYoutube, FaGithub, FaTwitter } from "react-icons/fa";
 
 const linkTypes = [
   {
@@ -9,15 +9,21 @@ const linkTypes = [
   },
   {
     name: "GitHub",
-    icon: null,
+    icon: (props, classes = "") => (
+      <FaGithub {...props} className={`text-black-100' ${classes}`}/>
+    ),
   },
   {
     name: "Linkedin",
-    icon: null,
+    icon: (props, classes = "") => (
+      <FaLinkedin {...props} className={`text-indigo-500' ${classes}`}/>
+    ),
   },
   {
     name: "Twitter",
-    icon: null,
+    icon: (props, classes = "") => (
+      <FaTwitter {...props} className={`text-blue-400' ${classes}`}/>
+    ),
   },
 ];
 

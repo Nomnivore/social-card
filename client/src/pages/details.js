@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from "../components/Card";
 import { useAPI } from "../hooks/useAPI";
+import { Link } from "react-router-dom";
 
 const Details = () => {
   const api = useAPI();
@@ -43,7 +44,7 @@ const Details = () => {
 
   return (
     <div className="flex justify-evenly pt-10">
-      <Card cardInitials={initials} userName={username} myLinks={myLinks} />
+      <Card cardInitials={initials} userName={username} myLinks={myLinks}/>
     </div>
   );
 };

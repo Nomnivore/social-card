@@ -82,12 +82,12 @@ const Directory = () => {
   });
   return (
     <div>
-      <h1 className="text-5xl flex justify-center p-5">Directory</h1>
+      <h1 className="text-5xl flex justify-center p-5 underline">Social Card Directory</h1>
       <div className="card-actions flex justify-evenly p-4 ">
         <button className="btn btn-primary" onClick={ascend}>
           Ascend
         </button>
-        <button className="btn btn-accent" onClick={descend}>
+        <button className="btn btn-secondary" onClick={descend}>
           Descend
         </button>
         <div className="form-control">

@@ -74,7 +74,7 @@ const Login = () => {
               </label>
             </div>
           </div>
-          <div className="card-actions flex justify-end">
+          <div className="card-actions flex justify-center">
             <button type="submit" className="btn btn-primary">
               Log In
             </button>

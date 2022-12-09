@@ -64,7 +64,7 @@ function Navbar() {
           </>
         ) : (
           <Link to={"/login"} className="btn">
-            Get started
+            Log In
           </Link>
         )}
       </div>
