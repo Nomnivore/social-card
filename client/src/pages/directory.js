@@ -81,8 +81,16 @@ const Directory = () => {
     );
   });
   return (
-    <div>
-      <h1 className="text-5xl flex justify-center p-5 underline">Social Card Directory</h1>
+    <div
+      className="bg-no-repeat bg-cover bg-center min-h-screen"
+      style={{
+        backgroundImage: `url("https://i.postimg.cc/rsd8FzcJ/hd-wallpaper-g3ef56cacf-1920.jpg")`,
+      }}
+    >
+      <div className="hero-overlay bg-opacity-60"></div>
+      <h1 className="text-5xl flex justify-center p-5 underline ">
+        Social Card Directory
+      </h1>
       <div className="card-actions flex justify-evenly p-4 ">
         <button className="btn btn-primary" onClick={ascend}>
           Ascend

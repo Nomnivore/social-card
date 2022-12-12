@@ -13,9 +13,10 @@ import Editor from "./pages/editor";
 const App = () => {
   return (
     <>
+    
       {/* layout elements like a navbar can go here */}
       <Navbar />
-
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/directory" element={<Directory />} />
