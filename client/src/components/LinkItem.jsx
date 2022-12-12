@@ -1,14 +1,24 @@
 import PropTypes from "prop-types";
 import linkTypes from "../util/linkTypes";
 import { FaQuestion } from "react-icons/fa";
+import { useState } from "react";
 
 function LinkItem(props) {
   const myLink = props.linkName;
   const linkType = props.linkType;
+  const [isHovering, setIsHovering] = useState(false);
 
   const iconProps = {
     size: "48",
     className: "",
+  };
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
   };
 
   function renderIcon() {
@@ -21,13 +31,18 @@ function LinkItem(props) {
   }
 
   return (
-    <div className="flex gap-2">
+    <div
+      className="flex gap-2"
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+    >
       {renderIcon()}
       <button className="btn btn-accent flex-grow">
         <a href={myLink} target="_blank" rel="noopener noreferrer">
-          {myLink}
+          {myLink.substring(0, 25)}
         </a>
       </button>
+      {isHovering && <div className="tooltip tooltip-open" data-tip={myLink} />}
     </div>
   );
 }

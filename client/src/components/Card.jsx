@@ -10,7 +10,9 @@ function Card({ cardInitials, userName, myLinks }) {
     <div className="card w-96 bg-secondary bg-opacity-40 shadow-xl shadow-info-content border-secondary ">
       <div className="card-body">
         <Avatar initials={cardInitials} />
-        <p className="flex justify-center text-success-content text-lg font-semibold">@{userName}</p>
+        <p className="flex justify-center text-success-content text-lg font-semibold">
+          @{userName}
+        </p>
         <div className="grid gap-4">
           {myLinks.map((link, i) => (
             <LinkItem linkName={link.url} key={i} linkType={link.linkType} />
@@ -25,9 +27,11 @@ function Card({ cardInitials, userName, myLinks }) {
           )}
         </div>
         <div className="flex flex-col items-center">
-        <Link to="/directory">
-          <button className="btn btn-primary justify-center">Directory</button>
-        </Link>
+          <Link to="/directory">
+            <button className="btn btn-primary justify-center">
+              Directory
+            </button>
+          </Link>
         </div>
       </div>
     </div>
