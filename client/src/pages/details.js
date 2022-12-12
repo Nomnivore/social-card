@@ -43,8 +43,15 @@ const Details = () => {
   }
 
   return (
-    <div className="flex justify-evenly pt-10">
-      <Card cardInitials={initials} userName={username} myLinks={myLinks}/>
+    <div
+      className="bg-no-repeat bg-cover bg-center min-h-screen"
+      style={{
+        backgroundImage: `url("https://i.postimg.cc/rsd8FzcJ/hd-wallpaper-g3ef56cacf-1920.jpg")`,
+      }}
+    >
+      <div className="flex justify-evenly pt-10">
+        <Card cardInitials={initials} userName={username} myLinks={myLinks} />
+      </div>
     </div>
   );
 };
