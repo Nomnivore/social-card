@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins, policy =>
                           {
                               policy.WithOrigins("http://social-card.kylewarner.net")
-                              .AllowAnyHeader().AllowAnyMethod();
+                              .AllowAnyHeader().AllowAnyMethod().AllowCredentials();
                           });
 });
 
