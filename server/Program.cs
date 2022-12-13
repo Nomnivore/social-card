@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using server.DbContext;
 using server.Models;
@@ -18,7 +19,8 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins, policy =>
                           {
-                              policy.WithOrigins("http://social-card.kylewarner.net");
+                              policy.WithOrigins("http://social-card.kylewarner.net")
+                              .WithHeaders(HeaderNames.ContentType, HeaderNames.Authorization);
                           });
 });
 
