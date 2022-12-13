@@ -42,7 +42,12 @@ function LinkItem(props) {
           {myLink.substring(0, 25)}
         </a>
       </button>
-      {isHovering && <div className="tooltip tooltip-open" data-tip={myLink} />}
+      {isHovering && (
+        <div
+          className="tooltip tooltip-open absolute left-1/2"
+          data-tip={myLink}
+        />
+      )}
     </div>
   );
 }
