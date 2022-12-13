@@ -45,46 +45,53 @@ const Login = () => {
   const defaultHandler = (setState) => (ev) => setState(ev.target.value);
 
   return (
-    <div className="flex justify-evenly pt-10">
-      <div className="card w-96 bg-base-200 shadow-xl">
-        <form onSubmit={submitForm} className="card-body">
-          <h2 className="card-title flex justify-center">Log In</h2>
-          <div className="grid gap-4">
-            <div className="form-control">
-              <label className="input-group input-group-vertical pb-3">
-                <span>Username</span>
-                <input
-                  type="text"
-                  placeholder="type username here"
-                  className="input input-bordered"
-                  required
-                  onChange={defaultHandler(setUsername)}
-                />
-              </label>
+    <div
+      className="bg-no-repeat bg-cover bg-center min-h-screen"
+      style={{
+        backgroundImage: `url("https://i.postimg.cc/rsd8FzcJ/hd-wallpaper-g3ef56cacf-1920.jpg")`,
+      }}
+    >
+      <div className="flex justify-evenly pt-10">
+        <div className="card w-96 bg-base-200 shadow-xl">
+          <form onSubmit={submitForm} className="card-body">
+            <h2 className="card-title flex justify-center">Log In</h2>
+            <div className="grid gap-4">
+              <div className="form-control">
+                <label className="input-group input-group-vertical pb-3">
+                  <span>Username</span>
+                  <input
+                    type="text"
+                    placeholder="type username here"
+                    className="input input-bordered"
+                    required
+                    onChange={defaultHandler(setUsername)}
+                  />
+                </label>
 
-              <label className="input-group input-group-vertical pb-3">
-                <span>Password</span>
-                <input
-                  type="password"
-                  placeholder="type password here"
-                  className="input input-bordered"
-                  required
-                  onChange={defaultHandler(setPassword)}
-                />
-              </label>
+                <label className="input-group input-group-vertical pb-3">
+                  <span>Password</span>
+                  <input
+                    type="password"
+                    placeholder="type password here"
+                    className="input input-bordered"
+                    required
+                    onChange={defaultHandler(setPassword)}
+                  />
+                </label>
+              </div>
             </div>
-          </div>
-          <div className="card-actions flex justify-center">
-            <button type="submit" className="btn btn-primary">
-              Log In
-            </button>
-          </div>
-          <div className="card-actions justify-center">
-            <Link to="/register" className="link link-primary">
-              Not already registered? Sign up here.
-            </Link>
-          </div>
-        </form>
+            <div className="card-actions flex justify-center">
+              <button type="submit" className="btn btn-primary">
+                Log In
+              </button>
+            </div>
+            <div className="card-actions justify-center">
+              <Link to="/register" className="link link-primary">
+                Not already registered? Sign up here.
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

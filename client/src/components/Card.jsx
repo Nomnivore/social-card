@@ -7,7 +7,7 @@ import { useAuth } from "../hooks/useAuth";
 function Card({ cardInitials, userName, myLinks }) {
   const { auth } = useAuth();
   return (
-    <div className="card w-96 bg-secondary bg-opacity-40 shadow-xl shadow-info-content border-secondary ">
+    <div className="card w-96 bg-secondary shadow-xl shadow-info-content border-secondary bg-opacity-90">
       <div className="card-body">
         <Avatar initials={cardInitials} />
         <p className="flex justify-center text-success-content text-lg font-semibold">

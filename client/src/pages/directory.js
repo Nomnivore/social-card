@@ -88,7 +88,7 @@ const Directory = () => {
       }}
     >
       <div className="hero-overlay bg-opacity-60"></div>
-      <h1 className="text-5xl flex justify-center p-5 underline ">
+      <h1 className="text-5xl flex justify-center p-5 text-bold bg-white bg-opacity-20">
         Social Card Directory
       </h1>
       <div className="card-actions flex justify-evenly p-4 ">

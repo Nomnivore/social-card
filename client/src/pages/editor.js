@@ -95,34 +95,43 @@ const Editor = () => {
   }
 
   return (
-    <div className="flex justify-evenly pt-10">
-      <div className="card w-146 bg-base-100 shadow-xl shadow-info-content bg-secondary bg-opacity-40">
-        {/* TODO: Implement user name here */}
-        <h2 className="card-title flex justify-center mt-8 text-2xl">@{username}</h2>
-        <div className="card-body">
-          {/* TODO: IMPLEMENT COMPONENT FOR ADD LINK */}
-          {myLinks.map((link, i) => (
-            <EditLink
-              key={i}
-              idx={i}
-              linkType={link.linkType}
-              url={link.url}
-              handleDeleteLink={handleDeleteLink}
-              handleUrlChanged={handleUrlChanged}
-              handleTypeChanged={handleTypeChanged}
-            />
-          ))}
-          {/* TODO: IMPLEMENT BUTTONS HERE */}
-          <div className="card-actions justify-center">
-            <button className="btn btn-primary" onClick={handleAddLink}>
-              Add Link
-            </button>
-            <button className="btn btn-secondary" onClick={handleSave}>
-              {saveBtnDisplay}
-            </button>
-            <Link to="/directory">
-              <button className="btn btn-primary">Directory</button>
-            </Link>
+    <div
+      className="bg-no-repeat bg-cover bg-center min-h-screen"
+      style={{
+        backgroundImage: `url("https://i.postimg.cc/rsd8FzcJ/hd-wallpaper-g3ef56cacf-1920.jpg")`,
+      }}
+    >
+      <div className="flex justify-evenly pt-10">
+        <div className="card w-146 bg-base-100 shadow-xl shadow-info-content bg-secondary bg-opacity-90">
+          {/* TODO: Implement user name here */}
+          <h2 className="card-title flex justify-center mt-8 text-2xl">
+            @{username}
+          </h2>
+          <div className="card-body">
+            {/* TODO: IMPLEMENT COMPONENT FOR ADD LINK */}
+            {myLinks.map((link, i) => (
+              <EditLink
+                key={i}
+                idx={i}
+                linkType={link.linkType}
+                url={link.url}
+                handleDeleteLink={handleDeleteLink}
+                handleUrlChanged={handleUrlChanged}
+                handleTypeChanged={handleTypeChanged}
+              />
+            ))}
+            {/* TODO: IMPLEMENT BUTTONS HERE */}
+            <div className="card-actions justify-center">
+              <button className="btn btn-primary" onClick={handleAddLink}>
+                Add Link
+              </button>
+              <button className="btn btn-secondary" onClick={handleSave}>
+                {saveBtnDisplay}
+              </button>
+              <Link to="/directory">
+                <button className="btn btn-primary">Directory</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
