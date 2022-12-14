@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const Home = () => {
+  const { auth } = useAuth();
+
   return (
     <div
       className="hero min-h-screen"
@@ -16,15 +19,23 @@ const Home = () => {
           </h1>
           <p className="mb-5 text-lg font-medium">
             Select Directory to explore our directory of created social cards.
-            Select Log In to create your own social card.
+            {auth?.token
+              ? " Select View Card to view and edit your own social card"
+              : " Select Log In to create your own social card."}
           </p>
           <div className="flex space-x-2 justify-center">
             <Link to="/directory">
               <button className="btn btn-primary">Directory</button>
             </Link>
-            <Link to="/login">
-              <button className="btn btn-secondary">Log In</button>
-            </Link>
+            {auth?.token ? (
+              <Link to={"/@" + auth.username}>
+                <button className="btn btn-secondary">View Card</button>
+              </Link>
+            ) : (
+              <Link to="/login">
+                <button className="btn btn-secondary">Log In</button>
+              </Link>
+            )}
           </div>
           <p className="mb-5 text-md font-bold">
             Reminder: You're here for life.

@@ -57,7 +57,9 @@ function Navbar() {
       <div className="navbar-end">
         {auth?.token ? (
           <>
-            <span>{auth.username}</span>
+            <Link to={"/@" + auth.username} className="btn btn-ghost">
+              @{auth.username}
+            </Link>
             <Link to="logout" className="btn btn-ghost">
               Logout
             </Link>
